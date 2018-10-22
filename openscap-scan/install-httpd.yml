@@ -1,0 +1,16 @@
+---
+- name: httpd install playbook
+  hosts: all
+  tasks:
+  - name: install httpd
+    yum: name=httpd state=latest
+
+  - name: start httpd service
+    service: name=httpd state=started enabled=yes
+
+  - name: firewall setup
+    command: firewall-cmd --permanent --add-service=http
+   
+  - name: reload firewall
+    command: firewall-cmd --reload
+

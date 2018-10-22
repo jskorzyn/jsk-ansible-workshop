@@ -1,0 +1,16 @@
+---
+
+- name: SCAP Automatic Remediation
+  hosts: all
+
+  tasks:
+    - name: Installng SCAP Security Guide
+      yum: name=scap-security-guide state=latest
+
+    - name: Running oscap remediate command and publishing at http://{{ ansible_eth0.ipv4.address }}
+      command: "oscap xccdf eval --remediate \
+	--profile xccdf_org.ssgproject.content_profile_pci-dss \
+	--report /var/www/html/remediate.html \
+	/usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml"
+      ignore_errors: True
+

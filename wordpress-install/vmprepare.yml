@@ -1,0 +1,13 @@
+---
+- name: Machine prepare
+  hosts: all
+  remote_user: root
+
+  roles:
+    - common
+#    - mariadb
+#    - nginx
+#    - php-fpm
+#    - wordpress
+
+    - test
