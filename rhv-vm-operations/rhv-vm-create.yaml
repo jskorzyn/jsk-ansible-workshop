@@ -24,7 +24,7 @@
 #      insecure: yes
 
   - name: Create and run VM from template
-    ovirt_vms:
+    ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
       name: "{{ vm }}"
       template: "{{ template }}"
@@ -36,7 +36,7 @@
       wait: yes
 
   - name: Create initial snap
-    ovirt_snapshots:
+    ovirt_snapshot:
 #      auth: "{{ ovirt_auth }}"
       vm_name: "{{ vm }}"
       wait: yes
@@ -44,7 +44,7 @@
       description: Initial_snap
 
   - name: Start vm
-    ovirt_vms:
+    ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
       name: "{{ vm }}"
       state: running
