@@ -12,8 +12,8 @@
     cluster: MicroCluster
     template: host3-template
     vm_memory: 1GiB
-    vm: test02
-    user_name: user20
+    vm_name: test02
+    description: user20
 
   tasks:
 #  - name: Obtain SSO token
@@ -26,19 +26,19 @@
   - name: Create and run VM from template
     ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
-      name: "{{ vm }}"
+      name: "{{ vm_name }}"
       template: "{{ template }}"
       cluster: "{{ cluster }}"
       memory: "{{vm_memory}}"
       high_availability: true
-      description: "{{user_name}}"
+      description: "{{ description }}"
       state: stopped
       wait: yes
 
   - name: Create initial snap
     ovirt_snapshot:
 #      auth: "{{ ovirt_auth }}"
-      vm_name: "{{ vm }}"
+      vm_name: "{{ vm_name }}"
       wait: yes
       state: present
       description: Initial_snap
@@ -46,7 +46,7 @@
   - name: Start vm
     ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
-      name: "{{ vm }}"
+      name: "{{ vm_name }}"
       state: running
       wait: yes
 #    register: newvm
