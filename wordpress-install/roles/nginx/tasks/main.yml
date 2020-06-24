@@ -13,9 +13,9 @@
 - name: insert firewalld rule for nginx
   firewalld: 
   port: "{{ nginx_port }}/tcp" 
-#  permanent: true 
+  permanent: yes 
   state: enabled 
-  immediate: yes
+#  immediate: yes
 
 - name: http service state
   service: 
