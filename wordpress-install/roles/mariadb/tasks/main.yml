@@ -17,7 +17,7 @@
     persistent: yes
 
 - name: Create Mysql configuration file
-  template: s
+  template:
     src: my.cnf.j2 
     dest: /etc/my.cnf
 #  notify:
