@@ -1,6 +1,6 @@
 ---
 - name: Provision VM from template
-  hosts: localhost
+  hosts: all
   connection: local
   gather_facts: no
 
