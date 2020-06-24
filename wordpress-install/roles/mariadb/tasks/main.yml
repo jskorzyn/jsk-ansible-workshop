@@ -44,7 +44,7 @@
 
 - name: insert firewalld rule
   firewalld: 
-     port: {{ mysql_port }}/tcp 
+     port: "{{ mysql_port }}/tcp" 
      permanent: true 
      state: enabled 
      immediate: yes
