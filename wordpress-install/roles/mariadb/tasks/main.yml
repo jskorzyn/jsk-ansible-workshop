@@ -18,7 +18,7 @@
 
 - name: Create Mysql configuration file
   template: s
-    rc: my.cnf.j2 
+    src: my.cnf.j2 
     dest: /etc/my.cnf
 #  notify:
 #  - restart mariadb
