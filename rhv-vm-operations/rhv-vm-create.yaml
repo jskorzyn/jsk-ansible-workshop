@@ -43,6 +43,13 @@
       state: present
       description: Initial_snap
 
+  - name: Add JustCreated tag to the VM
+    ovirt_tag:
+      name: just_created
+      state: attached
+      vms:
+        - "{{ vm_name }}"
+      
   - name: Start vm
     ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
