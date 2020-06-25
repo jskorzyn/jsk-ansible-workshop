@@ -38,7 +38,7 @@
 #      auth: "{{ ovitr_auth }}"
       vm: "{{ vm_name }}"
       description: Initial_snap
-      register: results
+    register: results
 
   - name: snap debug
     debug:
