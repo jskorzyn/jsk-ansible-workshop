@@ -1,1 +1,32 @@
 ---
+- name: Remove all tags
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+#    username:
+#    url:
+#    password:
+    datacenter: DemoDC
+    cluster: DemoLab
+    template: host3-template
+    vm_memory: 1GiB
+    vm_name: test01
+    description: jacek
+    tag_list:
+      - just_created
+      - production
+
+  tasks:
+#  - name: Obtain SSO token
+#    ovirt_auth:
+#      url: "{{ url }}"
+#      username: "{{ username }}"
+#      password: "{{ password }}"
+#      insecure: yes
+
+  - name: Remove JustCreated tag from the VM
+    ovirt_tag:
+      name: "{{ tag_list }}"
+      state: absent
