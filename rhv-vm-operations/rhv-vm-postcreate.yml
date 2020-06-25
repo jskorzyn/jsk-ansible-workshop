@@ -28,3 +28,10 @@
       state: detached
       vms:
         - "{{ vm_name }}"
+        
+  - name: Add Production tag to the VM
+    ovirt_tag:
+      name: production
+      state: attached
+      vms:
+        - "{{ vm_name }}"
