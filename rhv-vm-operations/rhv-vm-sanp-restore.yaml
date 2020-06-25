@@ -59,6 +59,6 @@
   - name: Start VM
     ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
-      name: "{{ vm }}"
+      name: "{{ vm_name }}"
       state: running
       wait: yes
