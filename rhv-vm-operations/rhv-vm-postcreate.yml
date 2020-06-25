@@ -7,12 +7,12 @@
 #    username:
 #    url:
 #    password:
-    datacenter: MicroLab
-    cluster: MicroCluster
+    datacenter: DemoDC
+    cluster: DemoLab
     template: host3-template
     vm_memory: 1GiB
-    vm_name: test02
-    description: user20
+    vm_name: test01
+    description: jacek
 
   tasks:
 #  - name: Obtain SSO token
