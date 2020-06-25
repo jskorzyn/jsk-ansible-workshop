@@ -26,7 +26,7 @@
   - name: Stop VM
     ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
-      name: "{{ vm }}"
+      name: "{{ vm_name }}"
       state: stopped
       wait: yes
 
@@ -36,7 +36,7 @@
   - name: Snapshot id register
     ovirt_snapshot_info:
 #      auth: "{{ ovitr_auth }}"
-      vm: "{{ vm }}"
+      vm: "{{ vm_name }}"
       description: Initial_snap
 
   - name: snap debug
@@ -50,7 +50,7 @@
   - name: Restore from snap
     ovirt_snapshot:
 #      auth: "{{ ovirt_auth }}"
-      vm_name: "{{ vm }}"
+      vm_name: "{{ vm_name }}"
       state: restore
       snapshot_id: "{{ ovirt_snapshots[0].id }}"
       wait: yes
