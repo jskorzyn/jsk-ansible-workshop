@@ -35,7 +35,7 @@
       description: "{{ description }}"
       state: stopped
       wait: yes
-    when: os_version == RHEL_7
+    when: os_version == "RHEL_7"
 
   - name: Create and run RHEL8 VM from template
     ovirt_vm:
@@ -48,7 +48,7 @@
       description: "{{ description }}"
       state: stopped
       wait: yes
-    when: os_version == RHEL_8
+    when: os_version == "RHEL_8"
 
   - name: Create initial snap
     ovirt_snapshot:
