@@ -1,1 +1,30 @@
----
+- name: Post create cleanup on RHV
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+#    username:
+#    url:
+#    password:
+    datacenter: MicroLab
+    cluster: MicroCluster
+    template: host3-template
+    vm_memory: 1GiB
+    vm_name: test02
+    description: user20
+
+  tasks:
+#  - name: Obtain SSO token
+#    ovirt_auth:
+#      url: "{{ url }}"
+#      username: "{{ username }}"
+#      password: "{{ password }}"
+#      insecure: yes
+
+  - name: Remove JustCreated tag from the VM
+    ovirt_tag:
+      name: just_created
+      state: detached
+      vms:
+        - "{{ vm_name }}"
