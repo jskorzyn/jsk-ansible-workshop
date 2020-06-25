@@ -10,10 +10,9 @@
 #    password:
     datacenter: MicroLab
     cluster: MicroCluster
-#    template: host3-template
     vm_memory: 1GiB
     vm_name: test02
-    description: user20
+    description: testvm
     os_version: RHEL_7
 
   tasks:
@@ -71,7 +70,6 @@
       name: "{{ vm_name }}"
       state: running
       wait: yes
-#    register: newvm
 
   - name: Pause after VM creates
     pause:
