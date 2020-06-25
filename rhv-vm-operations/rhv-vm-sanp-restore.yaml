@@ -9,11 +9,11 @@
 #    username:
 #    url:
 #    password:
-    datacenter: MicroLab
-    cluster: MicroCluster
+    datacenter: DomoDC
+    cluster: DemoLab
     template: host3-template
-    vm: test02
-    user_name: user20
+    vm_name: test01
+    user_name: jacek
 
   tasks:
 #  - name: Obtain SSO token
@@ -34,7 +34,7 @@
 #    setup:
 
   - name: Snapshot id register
-    ovirt_snapshots_fact:
+    ovirt_snapshot_info:
 #      auth: "{{ ovitr_auth }}"
       vm: "{{ vm }}"
       description: Initial_snap
