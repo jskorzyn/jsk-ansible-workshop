@@ -15,7 +15,7 @@
     port: "{{ nginx_port }}/tcp" 
     permanent: yes 
     state: enabled 
-#  immediate: yes
+    immediate: yes
 
 - name: http service state
   service: 
