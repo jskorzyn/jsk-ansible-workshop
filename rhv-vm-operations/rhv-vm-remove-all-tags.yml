@@ -26,7 +26,8 @@
 #      password: "{{ password }}"
 #      insecure: yes
 
-  - name: Remove JustCreated tag from the VM
+  - name: Remove All tags
     ovirt_tag:
-      name: "{{ tag_list }}"
+      name: "{{ item }}"
       state: absent
+    loop: "{{ tag_list }}"
