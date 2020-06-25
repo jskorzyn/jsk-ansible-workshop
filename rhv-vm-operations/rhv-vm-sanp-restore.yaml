@@ -38,21 +38,22 @@
 #      auth: "{{ ovitr_auth }}"
       vm: "{{ vm_name }}"
       description: Initial_snap
+      register: results
 
   - name: snap debug
     debug:
-      var: ovirt_snapshots
+      var: results.ovirt_snapshots
 
   - name: snap 2 debug
     debug:
-      var: ovirt_snapshots[0].id
+      var: results.ovirt_snapshots[0].id
 
   - name: Restore from snap
     ovirt_snapshot:
 #      auth: "{{ ovirt_auth }}"
       vm_name: "{{ vm_name }}"
       state: restore
-      snapshot_id: "{{ ovirt_snapshots[0].id }}"
+      snapshot_id: "{{ results.ovirt_snapshots[0].id }}"
       wait: yes
 
   - name: Start VM
