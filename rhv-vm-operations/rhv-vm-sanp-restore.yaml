@@ -30,9 +30,6 @@
       state: stopped
       wait: yes
 
-#  - name: facts
-#    setup:
-
   - name: Snapshot id register
     ovirt_snapshot_info:
 #      auth: "{{ ovitr_auth }}"
@@ -40,13 +37,13 @@
       description: Initial_snap
     register: results
 
-  - name: snap debug
-    debug:
-      var: results.ovirt_snapshots
-
-  - name: snap 2 debug
-    debug:
-      var: results.ovirt_snapshots[0].id
+#  - name: snap debug
+#    debug:
+#      var: results.ovirt_snapshots
+#
+#  - name: snap 2 debug
+#    debug:
+#      var: results.ovirt_snapshots[0].id
 
   - name: Restore from snap
     ovirt_snapshot:
