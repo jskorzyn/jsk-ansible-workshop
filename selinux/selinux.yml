@@ -4,6 +4,6 @@
   become: yes
   tasks:
   - name: set SElinux to enforcing
-    ansible.posix.selinux:
+    jacek.posix.selinux:
       policy: targeted
       state: enforcing
